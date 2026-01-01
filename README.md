@@ -1,73 +1,73 @@
-# React + TypeScript + Vite
+# VibeRead
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern web application that transforms text into natural-sounding speech using advanced AI technology. Make reading accessible and enjoyable for everyone.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Current Features
 
-## React Compiler
+- **Text-to-Speech Conversion**: Convert any text into high-quality audio instantly
+- **Natural AI Voices**: Powered by advanced AI for human-like speech synthesis
+- **Easy-to-Use Interface**: Simple paste-and-play functionality
+- **Audio Playback Controls**: Built-in audio player with standard controls
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Upcoming Features
 
-## Expanding the ESLint configuration
+- **Online Article Reading**: Extract and convert content from web articles directly
+- **AI Image-to-Speech**: Generate speech descriptions from images using computer vision
+- **Text Segmentation**: Automatically break longer texts into shorter, manageable audio segments
+- **Voice Speed Control**: Adjustable playback speed for personalized listening experience
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Installation
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+1. Clone the repository:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+git clone https://github.com/kalebb12/vibeRead.git
+cd vibeRead
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. Install dependencies:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
+
+3. Start the development server:
+
+```bash
+npm run dev
+```
+
+## Usage
+
+1. Open the application in your browser
+2. Navigate to the "Generate Audio" page
+3. Paste your text into the input field
+4. Click "Generate" to create audio
+5. Use the built-in player to listen to your audio
+
+## Technologies Used
+
+- React 18
+- TypeScript
+- Vite
+- Tailwind CSS
+- React H5 Audio Player
+
+## Contributing
+
+We welcome contributions focused on improving text-to-speech accuracy and audio quality. Please submit pull requests for bug fixes in audio generation or enhancements to the user interface.
+
+## License
+
+This project is licensed under the MIT License.
+
+## Roadmap
+
+- [ ] Online article integration
+- [ ] Image-to-speech functionality
+- [ ] Text segmentation for long documents
+- [ ] Voice speed controls
+- [ ] Multiple voice options
+- [ ] Export audio files
