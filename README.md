@@ -1,6 +1,6 @@
 # VibeRead
 
-A modern web application that transforms text into natural-sounding speech using advanced AI technology. Make reading accessible and enjoyable for everyone.
+A modern web app that turns text into natural-sounding speech - right in your browser. No sign-ups. No tracking, making reading effortless and accessible.
 
 ## Features
 
@@ -14,7 +14,7 @@ A modern web application that transforms text into natural-sounding speech using
 ### Upcoming Features
 
 - **Online Article Reading**: Extract and convert content from web articles directly
-- **AI Image-to-Speech**: Generate speech descriptions from images using computer vision
+- **AI Image-to-Speech**: Generate speech descriptions from images
 - **Text Segmentation**: Automatically break longer texts into shorter, manageable audio segments
 - **Voice Speed Control**: Adjustable playback speed for personalized listening experience
 
@@ -53,6 +53,7 @@ npm run dev
 - TypeScript
 - Vite
 - Tailwind CSS
+- puterjs
 - React H5 Audio Player
 
 ## Contributing
