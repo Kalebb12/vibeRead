@@ -1,27 +1,41 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import puter from "@heyputer/puter.js";
 import AudioPlayerWrapper from "../components/AudioPlayerWrapper";
+import { chunkText } from "../utils/chunkText";
+import { waitForAudioToEnd } from "../utils/waitForAudioEnd";
 
 const GenerateAudio = () => {
   const [texts, setTexts] = useState<string>("");
   const [audio, setAudio] = useState<HTMLAudioElement | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
 
-  const handleSubmit: (e: React.FormEvent) => void = async (e) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setAudio(null);
     setLoading(true);
+    setAudio(null);
+
     if (!texts.trim()) {
       setLoading(false);
       return;
     }
+
+    const chunks = chunkText(texts);
+
     try {
-      const audio = await puter.ai.txt2speech(texts);
-      setAudio(audio);
+      for (let i = 0; i < chunks.length; i++) {
+        setLoading(true);
+
+        console.log(chunks[i].length);
+        const audio = await puter.ai.txt2speech(chunks[i]);
+        setAudio(audio);
+
+        // wait until audio finishes playing
+        await waitForAudioToEnd(audio);
+      }
     } catch (error) {
       console.error("Error generating audio:", error);
-      alert("Failed to generate audio. Please try again.");
+      alert("Failed while reading text.");
     } finally {
       setLoading(false);
     }
@@ -38,6 +52,7 @@ const GenerateAudio = () => {
           >
             VibeRead
           </Link>
+
           <Link
             to="/"
             className="text-gray-600 hover:text-gray-800 transition-colors font-medium"
@@ -71,13 +86,12 @@ const GenerateAudio = () => {
                 id="text-input"
                 required
                 onChange={(e) => setTexts(e.target.value)}
-                maxLength={3000}
                 value={texts}
                 placeholder="Type or paste your text here... You can paste entire articles, book chapters, or any text you want to listen to."
                 className="w-full border-2 border-gray-300 rounded-xl p-4 h-64 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all resize-none text-gray-800 placeholder-gray-400"
               />
               <p className="text-sm text-gray-500 mt-2">
-                {texts.length} / 3000 characters
+                {texts.length} characters
               </p>
             </div>
 
