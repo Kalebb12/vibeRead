@@ -1,9 +1,11 @@
 import React, { createContext } from "react";
 
 type ReaderContextType = {
-  // audio: HTMLAudioElement | null;
-  // setAudio: React.Dispatch<React.SetStateAction<HTMLAudioElement | null>>;
-  handleTextChunk: (texts: string) => string[];
+  audioUrl: string[];
+  setAudioUrl: React.Dispatch<React.SetStateAction<string[]>>;
+  loading: boolean;
+  setLoading: React.Dispatch<React.SetStateAction<boolean>>;
+  generateAudo: (texts: string) => Promise<void>;
 };
 
 const ReaderContext = createContext<ReaderContextType | null>(null);

@@ -1,89 +1,29 @@
-// const MAX_WORDS = 2800;
+export function chunkText(text: string, maxLength = 2500): string[] {
+  if (!text.trim()) return [];
 
-// export function chunkText(text: string): string[] {
-//   // 1. Normalize
-//   const cleanText = text
-//     .replace(/\s+/g, " ")
-//     .trim();
-
-//   // 2. Split into sentences
-//   const sentences = cleanText.match(/[^.!?]+[.!?]+|[^.!?]+$/g);
-
-//   if (!sentences) return [];
-
-//   const chunks: string[] = [];
-//   let currentChunk: string[] = [];
-//   let currentWordCount = 0;
-
-//   for (const sentence of sentences) {
-//     const wordsInSentence = sentence.trim().split(/\s+/).length;
-
-//     // If single sentence is too long (edge case)
-//     if (wordsInSentence > MAX_WORDS) {
-//       // flush current chunk
-//       if (currentChunk.length) {
-//         chunks.push(currentChunk.join(" "));
-//         currentChunk = [];
-//         currentWordCount = 0;
-//       }
-
-//       // force-split long sentence
-//       const words = sentence.split(/\s+/);
-//       for (let i = 0; i < words.length; i += MAX_WORDS) {
-//         chunks.push(words.slice(i, i + MAX_WORDS).join(" "));
-//       }
-
-//       continue;
-//     }
-
-//     // Check if adding this sentence exceeds limit
-//     if (currentWordCount + wordsInSentence > MAX_WORDS) {
-//       chunks.push(currentChunk.join(" "));
-//       currentChunk = [sentence];
-//       currentWordCount = wordsInSentence;
-//     } else {
-//       currentChunk.push(sentence);
-//       currentWordCount += wordsInSentence;
-//     }
-//   }
-
-//   // Push remaining chunk
-//   if (currentChunk.length) {
-//     chunks.push(currentChunk.join(" "));
-//   }
-
-//   return chunks;
-// }
-
-const MAX_CHARS = 3000;
-
-export function chunkText(text: string): string[] {
-  const sentences = text.split(/(?<=[.!?])\s+/);
+  const sentences = text.match(/[^.!?]+[.!?]?/g) ?? [];
   const chunks: string[] = [];
-
   let currentChunk = "";
 
   for (const sentence of sentences) {
-    // Case 1: sentence alone is too big → hard split
-    if (sentence.length > MAX_CHARS) {
-      if (currentChunk) {
+    // Hard split very long sentences
+    if (sentence.length > maxLength) {
+      if (currentChunk.trim()) {
         chunks.push(currentChunk.trim());
         currentChunk = "";
       }
 
-      for (let i = 0; i < sentence.length; i += MAX_CHARS) {
-        chunks.push(sentence.slice(i, i + MAX_CHARS));
+      for (let i = 0; i < sentence.length; i += maxLength) {
+        chunks.push(sentence.slice(i, i + maxLength));
       }
-
       continue;
     }
 
-    // Case 2: adding sentence would overflow
-    if ((currentChunk + sentence).length > MAX_CHARS) {
+    if ((currentChunk + sentence).length > maxLength) {
       chunks.push(currentChunk.trim());
-      currentChunk = sentence + " ";
+      currentChunk = sentence;
     } else {
-      currentChunk += sentence + " ";
+      currentChunk += (currentChunk ? " " : "") + sentence;
     }
   }
 

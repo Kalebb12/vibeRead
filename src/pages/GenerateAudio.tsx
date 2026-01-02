@@ -1,44 +1,20 @@
 import { useState } from "react";
 import { Link } from "react-router";
-import puter from "@heyputer/puter.js";
 import AudioPlayerWrapper from "../components/AudioPlayerWrapper";
-import { chunkText } from "../utils/chunkText";
-import { waitForAudioToEnd } from "../utils/waitForAudioEnd";
+import { useReaderContext } from "../hooks/useReaderContext";
 
 const GenerateAudio = () => {
   const [texts, setTexts] = useState<string>("");
-  const [audio, setAudio] = useState<HTMLAudioElement | null>(null);
-  const [loading, setLoading] = useState<boolean>(false);
+  const { audioUrl, loading, generateAudo } = useReaderContext();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setLoading(true);
-    setAudio(null);
-
-    if (!texts.trim()) {
-      setLoading(false);
+    if (!texts) {
+      alert("Please enter some text.");
       return;
     }
 
-    const chunks = chunkText(texts);
-
-    try {
-      for (let i = 0; i < chunks.length; i++) {
-        setLoading(true);
-
-        console.log(chunks[i].length);
-        const audio = await puter.ai.txt2speech(chunks[i]);
-        setAudio(audio);
-
-        // wait until audio finishes playing
-        await waitForAudioToEnd(audio);
-      }
-    } catch (error) {
-      console.error("Error generating audio:", error);
-      alert("Failed while reading text.");
-    } finally {
-      setLoading(false);
-    }
+    await generateAudo(texts);
   };
 
   return (
@@ -131,13 +107,13 @@ const GenerateAudio = () => {
           </form>
 
           {/* Audio Player Section */}
-          {audio && (
+          {audioUrl.length > 0 && (
             <div className="mt-8 pt-8 border-t border-gray-200">
               <h2 className="text-2xl font-bold mb-4 text-gray-800">
                 Your Generated Audio
               </h2>
               <div className="bg-gray-50 rounded-xl p-6">
-                <AudioPlayerWrapper audio={audio} />
+                <AudioPlayerWrapper audioUrl={audioUrl} />
               </div>
               <p className="text-sm text-gray-500 mt-4 text-center">
                 You can adjust playback speed and control playback using the

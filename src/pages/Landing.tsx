@@ -26,9 +26,9 @@ const Landing = () => {
             Read Easily, Listen Instantly
           </h1>
           <p className="text-xl md:text-2xl text-gray-700 mb-8 leading-relaxed">
-            Transform any text into natural-sounding speech. Upload your
-            documents and get instant audio that you can listen to anywhere,
-            anytime.
+            Transform any text into natural-sounding speech with the power of
+            Puter.js. Upload your documents and get instant audio that you can
+            listen to anywhere, anytime.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link
@@ -98,8 +98,8 @@ const Landing = () => {
               Natural Speech
             </h3>
             <p className="text-gray-600 leading-relaxed">
-              Powered by advanced AI, our text-to-speech delivers natural,
-              human-like voices.
+              Powered by Puter.js AI, our text-to-speech delivers natural,
+              human-like voices that make listening enjoyable.
             </p>
           </div>
 
@@ -124,7 +124,7 @@ const Landing = () => {
             </h3>
             <p className="text-gray-600 leading-relaxed">
               Perfect for people who want to read easily. Listen to books,
-              articles, and documents on the go.
+              articles, and documents on the go with Puter.js technology.
             </p>
           </div>
 
@@ -148,9 +148,82 @@ const Landing = () => {
               AI Image to Speech
             </h3>
             <p className="text-gray-600 leading-relaxed">
-              Upload images and let AI describe them in natural speech. Perfect
-              for visual content accessibility.
+              Upload images and let Puter.js AI describe them in natural speech.
+              Perfect for visual content accessibility.
             </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Puter.js Section */}
+      <div className="container mx-auto px-6 py-20">
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-white rounded-3xl p-12 shadow-xl">
+            <div className="text-center mb-8">
+              <h2 className="text-4xl font-bold mb-4 text-gray-800">
+                Powered by Puter.js
+              </h2>
+              <p className="text-xl text-gray-600">
+                The Future of AI-Powered Speech Technology
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div>
+                <h3 className="text-2xl font-bold mb-4 text-gray-800">
+                  What is Puter.js?
+                </h3>
+                <p className="text-gray-600 mb-6 leading-relaxed">
+                  Puter.js is a cutting-edge JavaScript library that brings
+                  powerful AI capabilities directly to web applications. It
+                  provides seamless integration with advanced AI models for
+                  text-to-speech, image processing, and more.
+                </p>
+                <ul className="space-y-3 text-gray-600">
+                  <li className="flex items-start gap-3">
+                    <svg className="w-6 h-6 text-green-500 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                    <span>High-quality, natural-sounding speech synthesis</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <svg className="w-6 h-6 text-green-500 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                    <span>Advanced AI image description capabilities</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <svg className="w-6 h-6 text-green-500 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                    <span>Easy-to-use JavaScript API</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <svg className="w-6 h-6 text-green-500 mt-0.5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                    <span>Privacy-focused with local processing</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="bg-gray-50 rounded-2xl p-8">
+                <h4 className="text-xl font-bold mb-4 text-gray-800">
+                  Why Puter.js for VibeRead?
+                </h4>
+                <p className="text-gray-600 mb-4">
+                  We chose Puter.js because it offers unparalleled performance
+                  and reliability for text-to-speech conversion. Its advanced
+                  AI models ensure that your text is transformed into
+                  natural-sounding speech that feels human and engaging.
+                </p>
+                <p className="text-gray-600">
+                  With Puter.js, VibeRead delivers fast, high-quality audio
+                  generation that works seamlessly across all devices and
+                  browsers, making reading accessible to everyone.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -182,11 +255,11 @@ const Landing = () => {
               </div>
               <div>
                 <h3 className="text-2xl font-bold mb-2 text-gray-800">
-                  Generate Audio
+                  Generate Audio with Puter.js
                 </h3>
                 <p className="text-gray-600 text-lg">
-                  Click the generate button and watch as our AI transforms your
-                  text into natural speech.
+                  Click the generate button and watch as Puter.js AI transforms
+                  your text into natural speech instantly.
                 </p>
               </div>
             </div>
@@ -213,7 +286,8 @@ const Landing = () => {
         <div className="max-w-3xl mx-auto bg-linear-to-r from-blue-600 to-purple-600 rounded-3xl p-12 text-center text-white">
           <h2 className="text-4xl font-bold mb-4">Ready to Start Reading?</h2>
           <p className="text-xl mb-8 opacity-90">
-            Join thousands of users who are making reading easier with VibeRead.
+            Experience the power of Puter.js AI. Join thousands of users who are
+            making reading easier with VibeRead.
           </p>
           <Link
             to="/generate"
@@ -227,7 +301,7 @@ const Landing = () => {
       {/* Footer */}
       <footer className="container mx-auto px-6 py-8 border-t border-gray-200">
         <div className="text-center text-gray-600">
-          <p>&copy; 2026 VibeRead. Making reading accessible for everyone.</p>
+          <p>&copy; 2026 VibeRead. Powered by Puter.js - Making reading accessible for everyone.</p>
         </div>
       </footer>
     </div>
